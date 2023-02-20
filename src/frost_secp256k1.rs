@@ -1,5 +1,6 @@
 use std::collections::*;
 
+use elliptic_curve::Group;
 use serde::{Deserialize, Serialize};
 use serde_with::serde_as;
 use wasm_bindgen::prelude::*;
@@ -29,7 +30,10 @@ pub struct DkgR1Bcast {
 /// Feldman verifier.
 #[derive(Serialize, Deserialize)]
 pub struct SerdeFV(
-    pub vsss_rs::FeldmanVerifier<<Secp256k1Math as Math>::F, <Secp256k1Math as Math>::G>,
+    pub  vsss_rs::FeldmanVerifier<
+        <<Secp256k1Math as Math>::G as Group>::Scalar,
+        <Secp256k1Math as Math>::G,
+    >,
 );
 
 #[derive(Serialize, Deserialize)]

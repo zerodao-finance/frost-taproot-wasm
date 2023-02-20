@@ -182,11 +182,11 @@ pub fn frost_secp256k1_export_bip340_pk(r2bcast: JsValue) -> js_sys::Uint8Array 
 ///
 /// Each signing session must create a new signer state.
 #[wasm_bindgen]
-pub fn frost_secp256k1_sign_init(info: JsValue, cosigners: Vec<u32>) -> JsValue {
+pub fn frost_secp256k1_sign_init(info: JsValue) -> JsValue {
     let r2state =
         serde_wasm_bindgen::from_value::<dkg::R2ParticipantState<Secp256k1Math>>(info).unwrap();
 
-    let ss = thresh::SignerState::new(&r2state, cosigners, Bip340Chderiv).unwrap();
+    let ss = thresh::SignerState::new(&r2state, Bip340Chderiv).unwrap();
     serde_wasm_bindgen::to_value(&ss).unwrap()
 }
 

@@ -7,7 +7,7 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-frost-taproot = "0.3"
+#frost-taproot = "0.3"
 wasm-bindgen = "0.2"
 getrandom = { version = "*", features = ["js"] }
 serde = { version = "1", features = ["derive"] }
@@ -21,6 +21,10 @@ k256 = "0.12.0-pre.0"
 rand = "0.8"
 rand_chacha = "*"
 elliptic-curve = { version = "0.12", features = ["serde", "sec1", "arithmetic", "hazmat"] }
+
+[dependencies.frost-taproot]
+git = "httpS://github.com/zerodao-finance/frost-taproot.git"
+rev = "10a5728a721e5693f85554dbbc2ff80d7170425b"
 
 [dependencies.vsss-rs]
 git = "https://github.com/mikelodder7/vsss-rs.git"

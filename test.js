@@ -1,5 +1,5 @@
-import init from "./pkg/krustology_wasm.js";
-import * as kwasm from "./pkg/krustology_wasm.js";
+import init from "./pkg/frost_taproot_wasm.js";
+import * as kwasm from "./pkg/frost_taproot_wasm.js";
 
 function testDkg() {
     console.log("TEST DKG");
@@ -43,8 +43,8 @@ function testDkg() {
     console.log("pubkey xonly", vk);
 
     // Thresh setup.
-    let p1s0 = krust.frost_secp256k1_sign_init(p1o2.state, [1, 2]);
-    let p2s0 = krust.frost_secp256k1_sign_init(p2o2.state, [1, 2]);
+    let p1s0 = krust.frost_secp256k1_sign_init(p1o2.state);
+    let p2s0 = krust.frost_secp256k1_sign_init(p2o2.state);
     console.log("sign round 0", [p1s0, p2s0]);
 
     // Thresh round 1.
